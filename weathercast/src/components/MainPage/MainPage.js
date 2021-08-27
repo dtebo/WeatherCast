@@ -1,8 +1,12 @@
 import react from "react";
+import Search from "../Search/Search";
 
 const MainPage = () => {
     return(
-        <h1>Hello Weather!</h1>
+        <>
+            <h1>Hello Weather!</h1>
+            <Search />
+        </>
     );
 };
 
