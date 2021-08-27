@@ -1,0 +1,9 @@
+.forecastContainer{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    position: absolute;
+    bottom: 80px;
+    padding: 20px;
+    width: 80%;
+}
