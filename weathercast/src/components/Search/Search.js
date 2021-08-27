@@ -20,7 +20,8 @@ const Search = (props) => {
     const onSubmit = (event) => {
         event.preventDefault();
 
-        axios.get("http://api.weatherapi.com/v1/current.json?key=ea8cf72cff1f49fbb4e142540212708&q=" + values.zip + "&days=5&aqi=no")
+        //Get weather data
+        axios.get("http://api.weatherapi.com/v1/forecast.json?key=ea8cf72cff1f49fbb4e142540212708&q=" + values.zip + "&days=5&aqi=no&alerts=no")
             .then(resp => {
                 console.log(resp);
                 props.getWeatherData(resp.data);

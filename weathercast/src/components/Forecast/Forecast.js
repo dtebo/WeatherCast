@@ -1,11 +1,19 @@
 import React from "react";
 
 import "./Forecast.css";
+import ForecastCard from "./ForecastCard";
 
-const Forecast = () => {
+const Forecast = (props) => {
     return (
         <div className="forecastContainer">
-            <h3>Five Day Forecast Here</h3>
+            {props.weatherData.forecast.forecastday.map((d) => {
+                return(
+                    <ForecastCard 
+                        dayData={d}
+                        key={d.date}
+                    />
+                )
+            })}
         </div>
     );
 };

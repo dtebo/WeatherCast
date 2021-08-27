@@ -1,10 +1,16 @@
 import useStyles from "./useStyles";
 
 import {
-    TextField
+    TextField,
+    Card,
+    CardContent,
+    Typography
 } from "@material-ui/core";
 
 export {
     useStyles,
-    TextField
+    TextField,
+    Card,
+    CardContent,
+    Typography
 };
