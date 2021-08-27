@@ -1,11 +1,17 @@
-import react from "react";
+import React, {useState} from "react";
 import Search from "../Search/Search";
 
 const MainPage = () => {
+    const [weatherData, setWeatherData] = useState({});
+
+    const getWeatherData = (data) => {
+        setWeatherData(data);
+    };
+
     return(
         <>
-            <h1>Hello Weather!</h1>
-            <Search />
+            <Search getWeatherData={getWeatherData} />
+            <p>{weatherData.location.name}</p>
         </>
     );
 };
