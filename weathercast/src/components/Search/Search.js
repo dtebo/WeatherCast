@@ -23,6 +23,9 @@ const Search = (props) => {
 
         //Get weather data
         props.getWeatherData(values.zip);
+
+        //Pass weather data to main page
+        props.pullWeatherData(props.weather);
     };
 
     return (
@@ -43,8 +46,9 @@ const Search = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    return state;
+    return {
+        weather: state.weatherData
+    };
 };
 
 export default connect(mapStateToProps, {getWeatherData})(Search);

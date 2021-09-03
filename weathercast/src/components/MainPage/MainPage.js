@@ -7,13 +7,14 @@ import './MainPage.css';
 const MainPage = () => {
     const [weatherData, setWeatherData] = useState({});
 
-    const getWeatherData = (data) => {
+    const pullWeatherData = (data) => {
+        console.log(data);
         setWeatherData(data);
     };
 
     return(
         <div>
-            <Search getWeatherData={getWeatherData} />
+            <Search pullWeatherData={pullWeatherData} />
             {weatherData.location ?
              (
                 <div className="weatherDataContainer">
