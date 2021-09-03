@@ -8,7 +8,6 @@ const MainPage = () => {
     const [weatherData, setWeatherData] = useState({});
 
     const pullWeatherData = (data) => {
-        console.log(data);
         setWeatherData(data);
     };
 

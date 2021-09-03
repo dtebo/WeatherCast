@@ -9,7 +9,6 @@ export const getWeatherData = (zip) => dispatch => {
 
     axios.get("http://api.weatherapi.com/v1/forecast.json?key=ea8cf72cff1f49fbb4e142540212708&q=" + zip + "&days=5&aqi=no&alerts=no")
         .then(res => {
-            console.log(res.data);
             dispatch({type: FETCH_WEATHER_DATA_SUCCESS, payload: res.data});
         })
         .catch(err => {

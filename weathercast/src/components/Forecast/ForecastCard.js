@@ -5,7 +5,6 @@ import * as MUI from "../../MaterialUI/index";
 import moment from "moment";
 
 const ForecastCard = (props) => {
-    console.log(props.dayData);
     return (
         <div>
             <p></p>
