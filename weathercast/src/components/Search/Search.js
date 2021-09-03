@@ -1,6 +1,7 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux';
 import * as MUI from '../../MaterialUI/index';
-import axios from "axios";
+import { getWeatherData } from "../../redux/actions";
 
 const initialValues = {
     zip: ""
@@ -20,15 +21,16 @@ const Search = (props) => {
     const onSubmit = (event) => {
         event.preventDefault();
 
+        getWeatherData(values.zip);
         //Get weather data
-        axios.get("http://api.weatherapi.com/v1/forecast.json?key=ea8cf72cff1f49fbb4e142540212708&q=" + values.zip + "&days=5&aqi=no&alerts=no")
-            .then(resp => {
-                console.log(resp);
-                props.getWeatherData(resp.data);
-            })
-            .catch(err => {
-                console.error(err);
-            });
+        // axios.get("http://api.weatherapi.com/v1/forecast.json?key=ea8cf72cff1f49fbb4e142540212708&q=" + values.zip + "&days=5&aqi=no&alerts=no")
+        //     .then(resp => {
+        //         console.log(resp);
+        //         props.getWeatherData(resp.data);
+        //     })
+        //     .catch(err => {
+        //         console.error(err);
+        //     });
     };
 
     return (
@@ -48,4 +50,8 @@ const Search = (props) => {
     );
 };
 
-export default Search;
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps, {getWeatherData})(Search);
