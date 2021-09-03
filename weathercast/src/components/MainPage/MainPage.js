@@ -12,20 +12,18 @@ const MainPage = () => {
     };
 
     return(
-        <>
+        <div>
             <Search getWeatherData={getWeatherData} />
             {weatherData.location ?
              (
-                <>
-                    <div className="weatherDataContainer">
-                        <p>{weatherData.location.name + ", " + weatherData.location.region}</p>
-                        <img src={"http:" + weatherData.current.condition.icon} alt="current conditions" />
-                        <p>{weatherData.current.condition.text}</p>
-                        <p>{"Current Temp: " + Math.round(weatherData.current.temp_f) }&#176;</p>
-                        <p>{"Feels Like: " + Math.round(weatherData.current.feelslike_f)}&#176;</p>
-                        <p>{"Humidity: " + weatherData.current.humidity + "%"}</p>
-                    </div>
-                </>
+                <div className="weatherDataContainer">
+                    <p>{weatherData.location.name + ", " + weatherData.location.region}</p>
+                    <img src={"http:" + weatherData.current.condition.icon} alt="current conditions" />
+                    <p>{weatherData.current.condition.text}</p>
+                    <p>{"Current Temp: " + Math.round(weatherData.current.temp_f) }&#176;</p>
+                    <p>{"Feels Like: " + Math.round(weatherData.current.feelslike_f)}&#176;</p>
+                    <p>{"Humidity: " + weatherData.current.humidity + "%"}</p>
+                </div>
              ) : (
                  <div className="weatherDataContainer">
                      <p>N/A</p>
@@ -36,7 +34,7 @@ const MainPage = () => {
                 <Forecast weatherData={weatherData} />
             ) : ""}
             
-        </>
+        </div>
     );
 };
 

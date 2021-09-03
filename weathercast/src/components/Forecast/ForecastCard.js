@@ -7,7 +7,7 @@ import moment from "moment";
 const ForecastCard = (props) => {
     console.log(props.dayData);
     return (
-        <>
+        <div>
             <p></p>
             <MUI.Card>
                 <MUI.CardContent>
@@ -27,7 +27,7 @@ const ForecastCard = (props) => {
                     </MUI.Typography>
                 </MUI.CardContent>
             </MUI.Card>
-        </>
+        </div>
     );
 };
 
