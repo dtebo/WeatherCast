@@ -1,28 +1,23 @@
-import React, {useState} from "react";
+import React from "react";
+import {connect} from "react-redux";
 import Forecast from "../Forecast/Forecast";
 import Search from "../Search/Search";
 
 import './MainPage.css';
 
-const MainPage = () => {
-    const [weatherData, setWeatherData] = useState({});
-
-    const pullWeatherData = (data) => {
-        setWeatherData(data);
-    };
-
+const MainPage = (props) => {
     return(
         <div>
-            <Search pullWeatherData={pullWeatherData} />
-            {weatherData.location ?
+            <Search />
+            {props.weatherData.location ?
              (
                 <div className="weatherDataContainer">
-                    <p>{weatherData.location.name + ", " + weatherData.location.region}</p>
-                    <img src={"http:" + weatherData.current.condition.icon} alt="current conditions" />
-                    <p>{weatherData.current.condition.text}</p>
-                    <p>{"Current Temp: " + Math.round(weatherData.current.temp_f) }&#176;</p>
-                    <p>{"Feels Like: " + Math.round(weatherData.current.feelslike_f)}&#176;</p>
-                    <p>{"Humidity: " + weatherData.current.humidity + "%"}</p>
+                    <p>{props.weatherData.location.name + ", " + props.weatherData.location.region}</p>
+                    <img src={"http:" + props.weatherData.current.condition.icon} alt="current conditions" />
+                    <p>{props.weatherData.current.condition.text}</p>
+                    <p>{"Current Temp: " + Math.round(props.weatherData.current.temp_f) }&#176;</p>
+                    <p>{"Feels Like: " + Math.round(props.weatherData.current.feelslike_f)}&#176;</p>
+                    <p>{"Humidity: " + props.weatherData.current.humidity + "%"}</p>
                 </div>
              ) : (
                  <div className="weatherDataContainer">
@@ -30,12 +25,18 @@ const MainPage = () => {
                  </div>
              )
             }
-            {weatherData.location ? (
-                <Forecast weatherData={weatherData} />
+            {props.weatherData.location ? (
+                <Forecast  />
             ) : ""}
             
         </div>
     );
 };
 
-export default MainPage;
+const mapStateToProps = (state) => {
+    return {
+        weatherData: state.weatherData
+    };
+};
+
+export default connect(mapStateToProps)(MainPage);

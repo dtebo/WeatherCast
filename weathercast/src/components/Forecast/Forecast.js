@@ -1,5 +1,5 @@
 import React from "react";
-
+import {connect} from "react-redux";
 import "./Forecast.css";
 import ForecastCard from "./ForecastCard";
 
@@ -18,4 +18,10 @@ const Forecast = (props) => {
     );
 };
 
-export default Forecast;
+const mapStateToProps = (state) => {
+    return {
+        weatherData: state.weatherData
+    };
+};
+
+export default connect(mapStateToProps)(Forecast);

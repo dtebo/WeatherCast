@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {connect} from 'react-redux';
 import * as MUI from '../../MaterialUI/index';
 import { getWeatherData } from "../../redux/actions";
@@ -11,11 +11,6 @@ const Search = (props) => {
     const classes = MUI.useStyles();
 
     const [values, setValues] = useState(initialValues);
-
-    useEffect(() => {
-        //Pass weather data to the main page
-        props.pullWeatherData(props.weather);
-    }, [props.weather]);
 
     const handleChanges = (event) => {
         setValues({
